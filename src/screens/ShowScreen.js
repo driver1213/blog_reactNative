@@ -18,15 +18,23 @@ const ShowScreen = ({ navigation }) => {
     )
 }
 
-ShowScreen.navigationOptions = () => {
+ShowScreen.navigationOptions = ({ navigation }) => {
     return {
         headerRight: () => 
-            <TouchableOpacity>
-                <FontAwesome name="edit" size={35} />
+            <TouchableOpacity 
+                onPress={() => 
+                    navigation.navigate('Edit', { id: navigation.getParam('id') })
+                } 
+            >
+                <FontAwesome style={styles.header} name="edit" size={35} />
             </TouchableOpacity>
     }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    header: {
+        marginRight: 20
+    }
+})
 
 export default ShowScreen
