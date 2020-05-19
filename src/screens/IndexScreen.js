@@ -31,6 +31,15 @@ const IndexScreen = ({ navigation }) => {
     )
 };
 
+IndexScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerRight: () => 
+            <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+                <Entypo style={styles.header} name="plus" size={30} />
+            </TouchableOpacity>
+    }
+}
+
 const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
@@ -45,7 +54,11 @@ const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 24
+    },
+    header: {
+        marginRight: 20
     }
+    
 });
 
 export default IndexScreen;
